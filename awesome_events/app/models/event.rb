@@ -23,4 +23,13 @@ class Event < ActiveRecord::Base
       errors.add(:start_time, 'は終了時間よりも前に設定してください')
     end
   end
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w(name start_time)
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    []
+  end
+
 end
